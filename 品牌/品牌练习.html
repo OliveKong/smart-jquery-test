@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>品牌练习</title>
+	<link rel="stylesheet" type="text/css" href="../css/global.css">
+	<style type="text/css">
+		ul,ol{list-style: none;}
+		a{color:#333; text-decoration: none;}
+		.subCategoryBox{
+			width: 600px;
+			margin:0 auto;
+		}
+		.subCategoryBox ul{
+			width: 600px;
+		}
+		.subCategoryBox ul li{
+			width: 200px;
+			float: left;
+			line-height: 25px;
+		}
+		.subCategoryBox ul li.promoted,.subCategoryBox ul li.promoted a{
+			color: #f00;
+		}
+		.showmore{
+			text-align: center;
+			height: 40px;
+			line-height: 40px;
+		}
+		.showmore a{
+			padding: 5px 15px 5px 25px;
+			border: 1px solid #ccc;
+			position: relative;
+		}
+		.showmore a:after{
+			content: "";
+			display: block;
+			width: 10px;
+			height:10px;
+			position: absolute;
+			top: 8px;
+			left:10px;
+			background: url(../img/pinpai/1.gif) no-repeat 0 -10px;
+		}
+		.showmore a.down:after{
+			background-position: 0 0;
+		}
+	</style>
+</head>
+<body>
+	<div class="subCategoryBox">
+		<ul class="clearfix">
+			<li><a href="#">佳能</a><i>(212121)</i></li>
+			<li><a href="#">索尼</a><i>(212121)</i></li>
+			<li><a href="#">尼康</a><i>(212121)</i></li>
+			<li><a href="#">三星</a><i>(212121)</i></li>
+			<li><a href="#">尼康</a><i>(212121)</i></li>
+			<li><a href="#">三星</a><i>(212121)</i></li>
+			<li><a href="#">尼康</a><i>(212121)</i></li>
+			<li><a href="#">三星</a><i>(212121)</i></li>
+			<li><a href="#">尼康</a><i>(212121)</i></li>
+			<li><a href="#">三星</a><i>(212121)</i></li>
+			<li><a href="#">松下</a><i>(212121)</i></li>
+			<li><a href="#">卡西欧</a><i>(212121)</i></li>
+			<li><a href="#">富士康</a><i>(212121)</i></li>
+			<li><a href="#">宾大</a><i>(212121)</i></li>
+			<li><a href="#">奥林巴斯</a><i>(212121)</i></li>
+			<li><a href="#">明基</a><i>(212121)</i></li>
+			<li><a href="#">爱国者</a><i>(212121)</i></li>
+			<li><a href="#">其他品牌相机</a><i>(212121)</i></li>
+		</ul>
+		<div class="showmore">
+			<a href="more.html">
+				<span>显示全部品牌</span>
+			</a>
+		</div>
+	</div>
+</body>
+</html>
+<script type="text/javascript" src="../js/jquery-3.1.1.js"></script>
+<script type="text/javascript">
+	$(function () {
+		var $categorys=$(".subCategoryBox ul li:gt(5):not(:last)");//获取索引大于5但是去掉最后一个的li元素集合
+		$categorys.hide();
+		var $toggleBtn=$(".showmore > a");
+		$toggleBtn.click(function () {
+			if ($categorys.is(":hidden")) {//如果品牌隐藏为真
+				$categorys.show();//显示全部品牌
+				$(this).addClass("down")
+					.find("span")
+					.text("显示精简品牌");
+				$(".subCategoryBox ul li")
+					.filter(":contains('佳能'),:contains('爱国者')")
+					.addClass("promoted");
+				return false;//超链接不跳转
+			} else {
+				$categorys.hide();//隐藏部分品牌
+				$(this).removeClass("down").find("span").text("显示全部品牌");
+				$(".subCategoryBox ul li").filter(":contains('佳能'),:contains('爱国者')")
+					.removeClass("promoted");
+					return false;//超链接不跳转
+			}
+		})
+	});
+</script>
