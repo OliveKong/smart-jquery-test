@@ -18,6 +18,7 @@
 			width: 200px;
 			float: left;
 			line-height: 25px;
+			text-align: center;
 		}
 		.subCategoryBox ul li.promoted,.subCategoryBox ul li.promoted a{
 			color: #f00;
@@ -96,8 +97,7 @@
 			} else {
 				$categorys.hide();//隐藏部分品牌
 				$(this).removeClass("down").find("span").text("显示全部品牌");
-				$(".subCategoryBox ul li").filter(":contains('佳能'),:contains('爱国者')")
-					.removeClass("promoted");
+				$(".subCategoryBox ul li").removeClass("promoted");
 					return false;//超链接不跳转
 			}
 		})
