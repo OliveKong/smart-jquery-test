@@ -1,0 +1,186 @@
+/*---      Reset     -----------------------------------------------------*/
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+form,
+fieldset,
+input,
+p,
+blockquote,
+th,
+td
+{
+    margin: 0;
+    padding: 0;
+}
+body
+{
+    font-family: '宋体';
+
+    background: #fff;
+}
+fieldset,
+img
+{
+    border: 0;
+}  /*在ie6下面，只要给插入图片加了链接，就会出现小边框*/
+img
+{
+    display: block;
+}
+ol,
+ul,
+nav
+{
+    list-style: none;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6
+{
+    font-size: 100%;
+}
+em
+{
+    font-style: normal;
+}
+input,
+button,
+select,
+textarea
+{
+    outline: none;
+}
+textarea
+{
+    resize: none;
+}
+i,
+s
+{
+    font-style: normal;
+
+    text-decoration: none;
+}
+a
+{
+    text-decoration: none; 
+
+    color: #616161;
+}
+a:hover
+{
+    text-decoration: none;
+}
+.clearfix:before,
+.clearfix:after
+{
+    display: table;
+
+    content: '';
+}
+.clearfix:after
+{
+    clear: both;
+}
+.clearfix
+{
+    zoom: 1;
+}
+.wrapper
+{
+    width: 1200px;
+    margin: 0 auto;
+}
+
+/* 设置图片视频等自适应调整 */
+video embed,
+video object,
+video iframe
+{
+    width: 100%;
+    height: auto;
+}
+
+/*---      Global-Css     -----------------------------------------------------*/
+.txtCen
+{
+    text-align: center;
+}
+.marginAuto
+{
+    margin: 0 auto;
+}
+.hidden
+{
+    display: none;
+}
+.font-weiR
+{
+    font-family: '微软雅黑';
+};
+.color-mainR
+{
+    color: #a20100;
+}
+.color-mainB
+{
+    color: #41c0f7;
+}
+.color-g3
+{
+    color: #333;
+}
+.color-g6
+{
+    color: #666;
+}
+.color-gC
+{
+    color: #ccc;
+}
+.red
+{
+    color: #f00;
+}
+.deepRed
+{
+    color: #c92423;
+}
+.displayB
+{
+    display: block;
+}
+.positonR
+{
+    position: relative;
+}
+.tableCen
+{
+    margin: 0 auto;
+
+    border: 0 none;
+}
+.floatL
+{
+    float: left;
+}
+.floatR
+{
+    float: right;
+}
