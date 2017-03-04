@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>事件绑定</title>
+	<link rel="stylesheet" type="text/css" href="../css/global.css">
+	<script type="text/javascript" src="../js/jquery-3.1.1.js"></script>
+	<style type="text/css">
+		#panel{
+			width: 300px;
+		}
+		.head{
+			height: 35px;
+			line-height: 35px;
+			background: #ccc;
+		}
+		.content{
+			display: none;
+			border: 1px solid #ccc;
+			height: 120px;
+		}
+	</style>
+</head>
+<body>
+	<p>题目：点击标题链接，显示内容</p>
+	<div id="panel">
+		<h5 class="head">什么是jq？</h5>
+		<div class="content">
+			jq是xxxx，我随便写一写内容，深刻的就是尖端科技快速的减肥可是江东父老叫撒的看法加拉加斯的风景水电开发上看到
+		</div>
+	</div>
+</body>
+</html>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$("#panel h5.head").bind("click",function() {
+			$(this).next().show();
+		})
+	})
+</script>
