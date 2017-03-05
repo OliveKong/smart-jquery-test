@@ -6,7 +6,7 @@
 	<link rel="stylesheet" type="text/css" href="../css/global.css">
 	<script type="text/javascript" src="../js/jquery-3.1.1.js"></script>
 	<style type="text/css">
-		#panel{
+		#panel,#panel2{
 			width: 300px;
 		}
 		.head{
@@ -29,16 +29,31 @@
 			jq是xxxx，我随便写一写内容，深刻的就是尖端科技快速的减肥可是江东父老叫撒的看法加拉加斯的风景水电开发上看到
 		</div>
 	</div>
+	<p>下面是鼠标悬浮的例子</p>
+	<div id="panel2">
+		<h5 class="head">什么是jq？</h5>
+		<div class="content">
+			jq是xxxx，我随便写一写内容，深刻的就是尖端科技快速的减肥可是江东父老叫撒的看法加拉加斯的风景水电开发上看到
+		</div>
+	</div>
 </body>
 </html>
 <script type="text/javascript">
 	$(document).ready(function() {
+		// 绑定点击事件
 		$("#panel h5.head").bind("click",function() {
-			if ($(this).next().is(":visible")) {
-				$(this).next().hide();
+			var $content=$(this).next();
+			if ($content.is(":visible")) {
+				$content.hide();
 			}else{
-				$(this).next().show();
+				$content.show();
 			}
+		});
+		// 绑定鼠标悬浮事件
+		$("#panel2 h5.head").bind("mouseover",function(){
+			$(this).next().show();
+		}).bind("mouseout",function(){
+			$(this).next().hide();
 		})
 	})
 </script>

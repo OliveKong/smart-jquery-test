@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>事件冒泡</title>
+	<link rel="stylesheet" type="text/css" href="../css/global.css">
+	<script type="text/javascript" src="../js/jquery-3.1.1.js"></script>
+</head>
+<body>
+	<p>阻止事件冒泡，jq提供了stopPropgation()方法</p>
+	<p>阻止默认行为，jq提供给了preventDefault()方法</p>
+	<div id="content">
+		外层div元素
+		<span>内层span元素</span>
+		外层div元素
+	</div>
+	<div id="msg"></div>
+</body>
+</html>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$("span").bind("click",function(event) {
+			var txt=$("#msg").html()+"<p>点击内层span元素</p>";
+			$("#msg").html(txt);
+			event.stopPropagation();
+		});
+		$("#content").bind("click",function(event) {
+			var txt=$("#msg").html()+"<p>点击外层div元素</p>";
+			$("#msg").html(txt);
+			event.stopPropagation();
+		});
+		$("body").bind("click",function(event) {
+			var txt=$("#msg").html()+"<p>点击body元素</p>";
+			$("#msg").html(txt);
+			event.stopPropagation();
+		});
+	})
+</script>

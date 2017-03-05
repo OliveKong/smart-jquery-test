@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>事件对象的属性</title>
+	<script type="text/javascript" src="../js/jquery-3.1.1.js"></script>
+</head>
+<body>
+	<p id="type">event.type,event.type的作用是获取事件类型</p>
+	<h3 id="target" title="h3的title">event.target的作用是获取到触发事件的元素，jquery对其封装后，避免了各个浏览器不用标准的差异</h3>
+	<h3>event.pageX和event.pageY的作用是获取到光标相对于页面x坐标和y坐标。如果不用query，ie浏览器中用的是event.x/event.y,而火狐浏览器中用的是event.pageX/event.pageY。如果页面上有滚动条，则还要加上滚动条的宽度或者高度</h3>
+	<h3>event.which，该方法的作用是在鼠标单击事件中获取到鼠标的作用有键；在键盘事件中获取键盘的按键</h3>
+	<p>例子:获取鼠标的左中右键  <a class="mouse" href="">点击我获取鼠标的左中右键</a></p>
+	<input type="text" placeholder="获取键盘的按键">
+	<script type="text/javascript">
+		$(function () {
+			$("p#type").click(function(event) {
+				alert(event.type);
+			});
+			$("h3#target").click(function(event) {
+				var tg=event.target;
+				alert(tg.title);
+			});
+			$("a.mouse").click(function (event) {
+				alert(event.which);//1=鼠标左键，2=鼠标中键，3=鼠标右键
+			});
+			$("input").keyup(function(event) {
+				alert(event.which);
+			})
+		})
+	</script>
+</body>
+</html>
