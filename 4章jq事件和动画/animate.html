@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>animate</title>
+	<script type="text/javascript" src="../js/jquery-3.1.1.js"></script>
+	<style type="text/css">
+		#div{
+			width: 100px;
+			height: 111px;
+			background: tan;
+			position: relative;
+		}
+		#div2{
+			width: 100px;
+			height: 111px;
+			background: olive;
+			position: relative;
+		}
+		#div3{
+			width:20px;
+			height: 30px;
+			background: purple;
+			position: relative;
+			opacity: .5;
+		}
+	</style>
+</head>
+<body>
+	<div id="div"></div>
+	<div id="div2"></div>
+	<button id="btn">点我出效果</button>
+	<p>下面是个综合效果，让div3向右移动的同时增大高度，并将他的不透明度从50%变到100%，然后再让它从上到下移动，同时宽度变大，完成这些后让它以淡出的方式隐藏</p>
+	<div id="div3"></div>
+	<button id="btn3">点击我让div3开始动画</button>
+</body>
+</html>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$("#btn").click(function() {
+			// #div一边变高一边向右滑动
+			$(this).prevAll("div#div").animate({"left":"500px","height":"200px"},3000);
+			// #div2是先向右滑动，在变高，把animate拆分成两个
+			$(this).prevAll("div#div2").animate({"left":"500px"},3000).animate({"height":"200px"},2000);
+		});
+		$("#btn3").click(function() {
+			$(this).prev("#div3").animate({"left":"100px","height":"100px","opacity":"1"},2000).animate({"width":"100px","top":"100px"},2000).fadeOut("slow");
+		})
+	})
+</script>

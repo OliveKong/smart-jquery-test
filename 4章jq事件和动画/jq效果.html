@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jq效果</title>
+	<link rel="stylesheet" type="text/css" href="../css/global.css">
+	<script type="text/javascript" src="../js/jquery-3.1.1.js"></script>
+	<style type="text/css">
+		#panel{
+			width: 300px;
+		}
+		.head{
+			height: 35px;
+			line-height: 35px;
+			background: #ccc;
+		}
+		.content{
+			display: none;
+			border: 1px solid #ccc;
+			height: 120px;
+			position: absolute;
+			top: 55px;
+			left: 0;
+		}
+		.content2{
+			position: absolute;
+			top: 55px;
+			left: 0px;
+		}
+	</style>
+</head>
+<body>
+	<p>题目：点击标题链接，显示内容</p>
+	<div id="panel">
+		<h5 class="head">什么是jq？</h5>
+		<div class="content">
+			<img src="../img/动画/1.png" width="100%">
+		</div>
+		<div class="content2">
+			<img src="../img/动画/2.png" width="100%">
+		</div>
+	</div>
+</body>
+</html>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$("#panel h5.head").bind("click",function() {
+			$(".content").fadeIn(600);
+			$(".content2").fadeOut(600);
+			// if (!$(this).next().is(":visible")) {
+			// 	$(this).next().fadeIn(600);
+			// }else{{
+			// 	$(this).next().fadeOut(600);
+			// }}
+		})
+	})
+</script>
