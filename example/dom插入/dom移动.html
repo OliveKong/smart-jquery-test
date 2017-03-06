@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>dom移动</title>
+	<script type="text/javascript" src="../../js/jquery-3.1.1.js"></script>
+</head>
+<body>
+	<ul>
+		<li>苹果</li>
+		<li>橘子</li>
+		<li>菠萝</li>
+	</ul>
+</body>
+</html>
+<script type="text/javascript">
+	$(function() {
+		var $one_li=$("ul li:eq(1)");//获取<ul>中的第二个li元素
+		var $two_li=$("ul li:eq(2)");//获取<ul>中的第三个li元素
+		$two_li.insertBefore($one_li);//移动节点
+	});
+</script>

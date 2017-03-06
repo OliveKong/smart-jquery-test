@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>设置html文本val等值</title>
+	<script type="text/javascript" src="../js/jquery-3.1.1.js"></script>
+</head>
+<body>
+	<h4>html()方法</h4>
+	<p id="p1" title="你最喜欢的水果是">你最喜欢的水果是</p>
+	<h4>text() function</h4>
+	<p id="p2" title="你最喜欢的水果是"><strong>你最喜欢的水果是</strong></p>
+	<p><em>javascript中的innerText并不能在火狐浏览器中使用，但是jq的text()可以在任意浏览器中使用</em></p>
+	<form>
+		<div>
+			<input type="input" id="addresss" value="请输入邮箱地址">
+			<input type="text" id="password" value="请输入邮箱密码">
+			<input type="button" value="登录">
+		</div>
+	</form>
+	<p>
+		这个例子，也可以用表单元素的defaultValue属性来实现。defaultValue包含该表单元素的初始值。如下：
+	</p>
+	<form>
+		<div>
+			<input class="focusInput" type="input" value="请输入邮箱地址">
+			<input class="focusInput" type="text" value="请输入邮箱密码">
+			<input type="button" value="登录">
+		</div>
+	</form>
+	<p>
+		focus()方法相当于js中的onfocus()，作用是处理获取焦点时的事件。blur()相当于js中的onblur()，作用是处理失去焦点时的事件
+	</p>
+	<div style="width: 290px;height: 170px; border: 1px solid #333;">
+		<select id="single">
+			<option>选择1号</option>
+			<option>选择2号</option>
+			<option>选择3号</option>
+		</select>
+		<select id="multiple" multiple="multiple" style="height: 120px;">
+			<option selected="selected">选择1号</option>
+			<option>选择2号</option>
+			<option>选择3号</option>
+			<option>选择4号</option>
+			<option selected="selected">选择5号</option>
+		</select>
+		<br>
+		<input type="checkbox" value="check1">多选1
+		<input type="checkbox" value="check2">多选2
+		<input type="checkbox" value="check3">多选3
+		<input type="checkbox" value="check4">多选4
+		<br>
+		<input type="radio" value="radio1">单选1
+		<input type="radio" value="radio2">单选2
+		<input type="radio" value="radio3">单选3
+	</div>
+	<div>
+		<p>上面的例子也可以用attr来实现：</p>
+		<select id="select1">
+			<option>1</option>
+			<option>2</option>
+			<option>3</option>
+		</select>
+		<br>
+		<input type="radio" value="radio11" >
+		<input id="r2" type="radio" value="radio12" >
+		<input type="radio" value="radio13" >
+	</div>
+</body>
+</html>
+<script type="text/javascript">
+	$(document).ready(function() {
+		// html()和text()的方法练习
+		var p_html=$("p#p1").html();
+		alert(p_html);
+		$("p#p1").html("<strong>what is your favorite fruit?</strong>");
+		//text() function
+		var $p2=$("p#p2");
+		alert("第二个p标签的html()获取到的是："+ $p2.html()+"而获取到的text()是："+ $p2.text());
+		$p2.text("what is your favorite fruit?");
+
+		// 输入框提示文字效果，val()的用法练习
+		$("#addresss").focus(function() {
+			var input_text=$(this).val();//获取地址文本框的值
+			if (input_text=="请输入邮箱地址") {
+				$(this).val("");//赋空值
+			}
+		});
+		$("#addresss").blur(function() {
+			var input_text=$(this).val();//获取地址文本框的值
+			if (input_text=="") {
+				$(this).val("请输入邮箱密码");//赋值
+			}
+		});
+		// 密码框采用和邮箱框一样的方法就完成了
+		$("#password").focus(function() {
+			var input_text=$(this).val();//获取地址文本框的值
+			if (input_text=="请输入邮箱密码") {
+				$(this).val("");//赋空值
+			}
+		});
+		$("#password").blur(function() {
+			var input_text=$(this).val();//获取地址文本框的值
+			if (input_text=="") {
+				$(this).val("请输入邮箱地址");//赋值
+			}
+		});
+		// defaultValue属性。this.defaultValue指向的就是当前文本框本来的默认值
+		$(".focusInput").focus(function() {
+			var input_text=$(this).val();//获取地址文本框的值
+			if (input_text==this.defaultValue) {
+				$(this).val("");//赋空值
+			}
+		});
+		$(".focusInput").blur(function() {
+			var input_text=$(this).val();//获取地址文本框的值
+			if (input_text=="") {
+				$(this).val(this.defaultValue);//赋值
+			}
+		});
+		// val()的选择作用
+		$("#single").val("选择2号");
+		$("#multiple").val(["选择2号","选择3号"]);
+		$(":checkbox").val(["check2","check3"]);
+		$(":radio").val(["radio3"]);
+		// attr实现上面的作用,不过后期jq改进了，用prop比较好
+		$("#select1 option:eq(1)").prop("selected",true);
+		$("[value=radio12]:radio").prop("checked",true);
+	});
+</script>

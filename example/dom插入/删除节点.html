@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>dom删除节点</title>
+	<script type="text/javascript" src="../../js/jquery-3.1.1.js"></script>
+</head>
+<body>
+	<p>
+		删除节点的方法有两种：remove()和empty();<br>
+		remove()是从dom中删除所有匹配的元素,remove()掉的元素还以在后面继续使用
+	</p>
+	<ul>
+		<li>苹果</li>
+		<li>橘子</li>
+		<li>菠萝</li>
+	</ul>
+</body>
+</html>
+<script type="text/javascript">
+	$(function() {
+		var $li=$("ul li:eq(1)").remove();//获取ul中的第二个li，并将它从网页中删除
+		$li.appendTo("ul");//将刚才删掉的元素又重新添加到ul中
+	});
+</script>

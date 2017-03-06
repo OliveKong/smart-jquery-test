@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>dom插入</title>
+	<script type="text/javascript" src="../../js/jquery-3.1.1.js"></script>
+</head>
+<body>
+	<ul>
+		<li>苹果</li>
+		<li>橘子</li>
+		<li>菠萝</li>
+	</ul>
+</body>
+</html>
+<script type="text/javascript">
+	$(function() {
+		var $li_1=$("<li title='香蕉'>香蕉</li>");//创建第1个li元素
+		var $li_2=$("<li title='雪梨'>雪梨</li>");//创建第2个li元素
+		var $li_3=$("<li title='其他'>其他</li>");//创建第3个li元素
+
+		var $parent=$("ul");//获取ul
+		var $two_li=$("ul li:eq(1)");//获取ul里面的第二个li
+		$parent.append($li_1);//append()方法把创建的第一个li插入到ul最后
+		$parent.prepend($li_2);//prepend()方法把创建的第2个li插入到ul最前面
+		$li_3.insertAfter($two_li);//insertAfter()方法把创建的第三个li插入到第二个li的后面
+		//上面步奏运行完后是这个顺序：雪梨 苹果 橘子 其他 菠萝 香蕉
+		var $one_li=$("ul li:eq(1)");//获取<ul>中的第二个li元素
+		var $two_li=$("ul li:eq(2)");//获取<ul>中的第三个li元素
+		$two_li.insertBefore($one_li);//移动节点
+	});
+</script>

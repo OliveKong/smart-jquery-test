@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>图片提示效果</title>
+	<link rel="stylesheet" type="text/css" href="../../css/global.css">
+	<script type="text/javascript" src="../../js/jquery-3.1.1.js"></script>
+	<style type="text/css">
+		li{
+			float: left;
+			border: 1px solid #ddd;
+			margin: 10px;
+		}
+		img{
+			display: block;
+		}
+		#tooltip{
+			position: absolute;
+			z-index: 1;
+			border:2px solid tan;
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<ul class="clearfix">
+		<li>
+			<a class="tooltip" href="../../img/tip/bigger1.jpg">
+				<img src="../../img/tip/small1.jpg">
+			</a>
+		</li>
+		<li>
+			<a class="tooltip" href="../../img/tip/bigger2.jpg">
+				<img src="../../img/tip/small2.jpg">
+			</a>
+		</li>
+	</ul>
+</body>
+</html>
+<script type="text/javascript">
+	$(function() {
+		$("a.tooltip").mouseover(function(e) {
+			var x=10;
+			var bigPic="<div id='tooltip'><img src='" + this.href + "'/></div>";
+			$("body").append(bigPic);
+			$("#tooltip").css({
+				"top":(e.pageY+x) +"px",
+				"left":(e.pageX+x) +"px"
+			}).show("fast");
+		}).mouseout(function() {
+			$("#tooltip").remove();
+		}).mousemove(function(e) {
+			$("#tooltip").css({
+				"top":(e.pageY+10) + "px",
+				"left":(e.pageX+10) + "px"
+			})
+		})
+	})
+</script>
