@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>获取和失去焦点改变样式</title>
+	<script type="text/javascript" src='../../js/jquery-3.1.1.js'></script>
+	<style type="text/css">
+	*{outline: none;}
+		.focus{
+			border: 1px solid #f00;
+			background: #fcc;
+		}
+		.up,.down{
+			padding: 3px 5px;
+			background: #bbb;
+			color:#000;
+		}
+	</style>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$(":input").focus(function() {
+				$(this).addClass("focus");
+			}).blur(function() {
+				$(this).removeClass("focus");
+			});
+			// 向上滚动向下滚动
+			$(".up").click(function() {
+				if (!$("#commet").is(":animated")) {
+					$("#commet").animate({scrollTop:"-=50"},400);
+				}
+			});
+			$(".down").click(function() {
+				if (!$("#commet").is(":animated")) {
+					$("#commet").animate({scrollTop:"+=50"},400);
+				}
+			});
+		});
+	</script>
+</head>
+<body>
+	<form action="#" method="post" id="regForm">
+		<fieldset>
+			<legend>个人基本信息</legend>
+			<div>
+				<label for="username">名称：</label>
+				<input id="username" type="text">
+			</div>
+			<div>
+				<label for="pass">密码：</label>
+				<input id="pass" type="text">
+			</div>
+			<div>
+				<label for="detial">详细：</label>
+				<textarea id="detial"></textarea>
+			</div>
+		</fieldset>
+	</form>
+	<form>
+		<div id="msg">
+			<div class="msg-caption">
+				<span class='up'>向上</span>
+				<span class='down'>向下</span>
+			</div>
+			<div>
+				<textarea id="commet" rows="8" cols="20">
+					是的积分卡酒店客房卡四大皆空放是的积分卡酒店客房卡四大皆空放假啊可是对方尽快撒娇东风科技撒到付款是的积分卡酒店客房卡四大皆空放是的积分卡酒店客房卡四大皆空放假啊可是对方尽快撒娇东风科技撒到付款就是卡的是的积分卡酒店客房卡四大皆空放假啊可是对方尽快撒娇东风科技撒到付款就是卡的是的积分卡酒店客房卡四大皆空放假啊可是对方尽快撒娇东风科技撒到付款就是卡的假啊可是对方尽快撒娇东风科技撒到付款就是卡的就是卡的是的积分卡酒店客房卡四大皆空放假啊可是对方尽快撒娇东风科技撒到付款就是卡的是的积分卡酒店客房卡四大皆空放假啊可是对方尽快撒娇东风科技撒到付款就是卡的假啊可是对方尽快撒娇东风科技撒到付款就是卡的
+				</textarea>
+			</div>
+		</div>
+	</form>
+</body>
+</html>
