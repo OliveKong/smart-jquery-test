@@ -4,8 +4,67 @@
 	<meta charset="UTF-8">
 	<title>下拉框应用</title>
 	<script type="text/javascript" src="../js/jquery-3.1.1.js"></script>
+	<style type="text/css">
+		select{
+			width: 150px;
+			height: 200px;
+		}
+		.content{
+			width: 180px;
+			float: left;
+		}
+		span{
+			display: block;
+			width: 150px;
+			height: 25px;
+			background: tan;
+			margin: 5px 0;
+			text-align: center;
+		}
+	</style>
 </head>
 <body>
-	
+	<div class="content">
+		<select multiple id="select1">
+			<option value="1">选项1</option>
+			<option value="2">选项2</option>
+			<option value="3">选项3</option>
+			<option value="4">选项4</option>
+			<option value="5">选项5</option>
+			<option value="6">选项6</option>
+			<option value="7">选项7</option>
+			<option value="8">选项8</option>
+		</select>
+		<div>
+			<span id="add">选中添加到右边>></span>
+			<span id="add_all">全部添加到右边>></span>
+		</div>
+	</div>
+	<div class="content">
+		<select multiple id="select2"></select>
+		<div>
+			<span id="remove"><<选中删除到左边</span>
+			<span id="remove_all"><<全部删除到左边</span>
+		</div>
+	</div>
 </body>
 </html>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#add").click(function(){
+			var $option=$("#select1 option:selected");
+			//var $remove=$option.remove();
+			//$remove.appendTo($("#select2"));
+			//上面注释的两行代码可以简写为下面的一句
+			$option.appendTo($("#select2"));
+		});
+		$("#add_all").click(function(){
+			var $option=$("#select1 option");
+			$option.appendTo($("#select2"));
+		});
+		// 双击左边的某项option实现添加到右方
+		$("#select1 option").dblclick(function(){
+			$(this).appendTo($("#select2"));
+		})
+	});
+</script>
