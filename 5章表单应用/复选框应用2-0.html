@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>复选框应用</title>
+	<script type="text/javascript" src="../js/jquery-3.1.1.js"></script>
+</head>
+<body>
+	<form>
+		你爱好的运动是？<br>
+		<input type="checkbox" id="CheckedAllNo" value="全选/全不选">全选/全不选<br>
+		<input type="checkbox" name="items" value="足球">足球
+		<input type="checkbox" name="items" value="篮球">篮球
+		<input type="checkbox" name="items" value="羽毛球">羽毛球
+		<input type="checkbox" name="items" value="乒乓球">乒乓球<br>
+		<input type="button" id="send" value="提交">
+	</form>
+	<p>思路：当复选框组中checkbox全部被选中时，则所有被选中，全选全不选应该被选中，只要有一个没选中，则全选不被选中。ps：<b>通过个数来判断</b></p>
+</body>
+</html>
+<script type="text/javascript">
+	$(function() {
+		// 提交
+		$("#send").click(function() {
+			var str="你选中的是：\r\n";
+			$("[name=items]:checkbox:checked").each(function() {
+				str=str+$(this).val()+"\r\n";
+			});
+			alert(str);
+		});
+		// 用一个复选框控制全选和全不选
+		$("#CheckedAllNo").click(function(){
+			var checkState=this.checked;
+			$("[name=items]:checkbox").prop("checked",checkState);
+		});
+		// 绑定复选框组合全选全不选的联系，当复选框组中有一个没有选中时，全选全不选就不会被选中，当复选框组全部被选中时，则全选全不选也被选中
+		$("[name=items]:checkbox").click(function(){
+			var flag=true;
+			$("[name=items]:checkbox").each(function(){
+				if (!this.checked) {
+					flag=false;
+				}
+			});
+			$("#CheckedAllNo").prop("checked",flag);
+		});
+	});
+</script>
