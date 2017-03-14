@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>表格变色3</title>
+	<script type="text/javascript" src="../js/jquery-3.1.1.js"></script>
+</head>
+<body>
+	<table>
+		<thead>
+			<tr>
+				<th></th>
+				<th>姓名</th>
+				<th>性别</th>
+				<th>暂住地</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><input type="checkbox"></td>
+				<td>张三</td>
+				<td>男</td>
+				<td>浙江宁波</td>
+			</tr>
+			<tr>
+				<td><input type="checkbox"></td>
+				<td>李四</td>
+				<td>男</td>
+				<td>浙江温州</td>
+			</tr>
+			<tr>
+				<td><input type="checkbox"></td>
+				<td>赵武</td>
+				<td>女</td>
+				<td>湖南长沙</td>
+			</tr>
+			<tr>
+				<td><input type="checkbox"></td>
+				<td>王六</td>
+				<td>女</td>
+				<td>河北沧州</td>
+			</tr>
+			<tr>
+				<td><input type="checkbox"></td>
+				<td>赵武</td>
+				<td>女</td>
+				<td>湖南长沙</td>
+			</tr>
+			<tr>
+				<td><input type="checkbox" checked="true"></td>
+				<td>王六</td>
+				<td>女</td>
+				<td>河北沧州</td>
+			</tr>
+			<tr>
+				<td><input type="checkbox"></td>
+				<td>赵武</td>
+				<td>女</td>
+				<td>湖南长沙</td>
+			</tr>
+			<tr>
+				<td><input type="checkbox"></td>
+				<td>王六</td>
+				<td>女</td>
+				<td>河北沧州</td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>
+<style type="text/css">
+	table {
+		border: 0;
+		border-collapse: collapse;
+	}
+	td {
+		font: normal 12px/17px Arial;
+		padding: 2px;
+		width: 100px;
+	}
+	th {
+		font: bold 12px/17px Arial;
+		text-align: left;
+		padding: 4px;
+		border-bottom: 1px solid #333;
+	}
+	.odd{
+		background: #ccc;
+	}
+	.even{
+		background: #eee;
+	}
+	.selected {
+		background: #FF6500;
+		color: #fff;
+	}
+</style>
+<script type="text/javascript">
+	$(document).ready(function(){
+		// 排除表头变色
+		$("tbody tr:even").addClass("even");
+		$("tbody tr:odd").addClass("odd");
+		// 单击某行高亮，并且复选框被选中
+		// $("tbody tr").click(function(){
+		// 	if ($(this).hasClass("selected")) {
+		// 		$(this).removeClass("selected").find(":checked").prop("checked",false);
+		// 	}else{
+		// 		$(this).addClass("selected").find(":checkbox").prop("checked",true);
+		// 	}
+		// })
+		// 简化版
+		$("tbody tr").click(function(){
+			var hasSelected=$(this).hasClass("selected");
+			$(this)[hasSelected?"removeClass":"addClass"]('selected').find(":checkbox").prop("checked",!hasSelected);
+		});
+		// 如果复选框默认情况下是选择的，则高亮
+		$("tbody>tr:has(':checked')").addClass("selected");
+	});
+</script>

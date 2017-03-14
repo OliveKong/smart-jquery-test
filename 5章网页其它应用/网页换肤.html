@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>网页换肤</title>
+	<link rel="stylesheet" type="text/css" href="css/default.css">
+	<link id="cssfile" rel="stylesheet" type="text/css" href="css/skin_0.css">
+	<script type="text/javascript" src="../js/jquery-3.1.1.js"></script>
+	<script type="text/javascript" src="jquery.cookie.js"></script>
+</head>
+<body>
+    <ul id="skin">
+		<li id="skin_0" title="灰色" class="selected">灰色</li>
+		<li id="skin_1" title="紫色">紫色</li>
+		<li id="skin_2" title="红色">红色</li>
+		<li id="skin_3" title="天蓝色">天蓝色</li>
+		<li id="skin_4" title="橙色">橙色</li>
+		<li id="skin_5" title="淡绿色">淡绿色</li>
+	</ul>
+
+    <div id="div_side_0">
+		<div id="news">
+		    <h1 class="title">时事新闻</h1>
+		</div>
+    </div>
+
+    <div id="div_side_1">
+		<div id="game">
+			<h1 class="title">娱乐新闻</h1>
+		</div>
+    </div>
+</body>
+</html>
+<script type="text/javascript">
+	$(function(){
+		var $li=$("#skin li");
+		$li.click(function(){
+			$("#"+this.id).addClass("selected").siblings().removeClass("selected");
+			$("#cssfile").prop("href","css/"+this.id+".css");
+			$.cookie("MyCssSkin",this.id,{expires:10,path:"/"});//计入cookie
+		});
+		var cookie_skin=$.cookie("MyCssSkin");//获取cookie的值
+		if (cookie_skin) {//如果cookie确实存在
+			$("#"+cookie_skin).addClass("selected")//当前li元素被选中
+				.siblings().removeClass("selected");
+			$("#cssfile").prop("href","css/"+cookie_skin+".css");//设置不同皮肤
+			$.cookie("MyCssSkin",this.id,{expires:10,path:"/"});
+		}
+	});
+</script>
