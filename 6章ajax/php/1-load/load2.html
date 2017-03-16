@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ajax text加载部分内容</title>
+	<script type="text/javascript" src="../../../js/jquery-3.1.1.js"></script>
+	<style type="text/css">
+		* { margin:0; padding:0;}
+		body { font-size:12px;}
+		.comment { margin-top:10px; padding:10px; border:1px solid #ccc;background:#DDD;}
+		.comment h6 { font-weight:700; font-size:14px;}
+		.para { margin-top:5px; text-indent:2em;background:#DDD;}
+	</style>
+</head>
+<body>
+	<input id="send" type="button" value="ajax获取">
+	<div class="comment">
+		已有评论：
+	</div>
+	<div id="resText"></div>
+</body>
+</html>
+<script type="text/javascript">
+	$(function(){
+		$("#send").click(function(){
+			$("#resText").load("test.html .para");
+		});
+	});
+</script>
