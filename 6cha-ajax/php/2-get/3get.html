@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>json格式的ajax方式</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-size: 12px;
+        }
+
+        .comment {
+            margin-top: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            background: #DDD;
+        }
+
+        .comment h6 {
+            font-weight: 700;
+            font-size: 14px;
+        }
+
+        .para {
+            margin-top: 5px;
+            text-indent: 2em;
+            background: #DDD;
+        }
+
+        p {
+            margin-bottom: 10px;
+        }
+
+        textarea {
+            vertical-align: text-top;
+        }
+    </style>
+    <script type="text/javascript" src="../../../js/jquery-3.1.1.js"></script>
+    <script type="text/javascript">
+
+    </script>
+</head>
+<body>
+    <form id="form1" action="#">
+        <p>评论：</p>
+        <p>姓名：<input type="text" name="username" id="username"></p>
+        <p>内容：<textarea name="content" id="content" rows="2" cols="20"></textarea></p>
+        <p><input id="send" type="button" value="提交"></p>
+    </form>
+    <div class="comment">已有评论：</div>
+    <div id="restext"></div>
+</body>
+</html>
