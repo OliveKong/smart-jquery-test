@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ajax</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-size: 12px;
+        }
+
+        .comment {
+            margin-top: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            background: #DDD;
+        }
+
+        .comment h6 {
+            font-weight: 700;
+            font-size: 14px;
+        }
+
+        .para {
+            margin-top: 5px;
+            text-indent: 2em;
+            background: #DDD;
+        }
+
+        p {
+            margin-bottom: 10px;
+        }
+
+        textarea {
+            vertical-align: text-top;
+        }
+    </style>
+    <script type="text/javascript" src="../../../../js/jquery-3.1.1.js"></script>
+    <script type="text/javascript">
+    $(function(){
+    	$("#send").click(function(){
+    		$.get('get1.php',$("#form1").serialize(),function(data,textStatus){
+    			$("#restext").html(data)
+    		});
+    	});
+    	var fields=$(":checkbox,:radio").serializeArray();
+    	console.log(fields);
+    	$.each( fields, function(i, field){
+		    $("#results").append(field.value + " , ");
+		});
+    });
+    </script>
+</head>
+<body>
+    <form id="form1" action="#">
+        <p>评论：</p>
+        <p>姓名：<input type="text" name="username" id="username"></p>
+        <p>内容：<textarea name="content" id="content" rows="2" cols="20"></textarea></p>
+        <p><input id="send" type="button" value="提交"></p>
+    </form>
+    <div class="comment">已有评论：</div>
+    <div id="restext"></div>
+    <div>
+    	<label><input type="checkbox" checked="checked" name="check" value="1"> a</label><br>
+    	<label><input type="checkbox" checked="checked" name="check" value="2"> b</label><br>
+    	<label><input type="checkbox" checked="checked" name="check" value="3"> c</label><br>
+    	<label><input type="checkbox" name="check" value="4"> d</label><br>
+    	<label><input type="radio" checked="checked" name="radio" value="1"> a</label><br>
+    	<label><input type="radio" name="radio" value="2"> b</label><br>
+    	<label><input type="radio" name="radio" value="3"> c</label><br>
+    	<label><input type="radio" name="radio" value="4"> d</label><br>
+    </div>
+    <p id="results"><b>结果：</b> </p>
+</body>
+</html>

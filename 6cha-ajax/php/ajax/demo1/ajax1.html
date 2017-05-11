@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ajax方法</title>
+	<style type="text/css">
+		* { margin:0; padding:0;}
+		body { font-size:12px;}
+		.comment { margin-top:10px; padding:10px; border:1px solid #ccc;background:#DDD;}
+		.comment h6 { font-weight:700; font-size:14px;}
+		.para { margin-top:5px; text-indent:2em;background:#DDD;}
+		p{margin-bottom: 10px;}
+		textarea{vertical-align: text-top;}
+	</style>
+	<script type="text/javascript" src="../../../../js/jquery-3.1.1.js"></script>
+</head>
+<body>
+	<input id="send" type="button" value="提交">
+	<div id="restext"></div>
+</body>
+</html>
+<script type="text/javascript">
+	$(function(){
+		$("#send").click(function(){
+			$.ajax({
+				type:"GET",
+				url:"test.js",
+				dataType:"script"
+			})
+		})
+	})
+</script>
