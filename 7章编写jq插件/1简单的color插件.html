@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>简单的color插件</title>
+	<script type="text/javascript" src="../js/jquery-3.1.1.js"></script>
+	<script type="text/javascript" src="../js/jquery.color.js"></script>
+	<style type="text/css">
+		.div1{
+			color: pink;
+		}
+		.div2{
+			color: green;
+		}
+	</style>
+</head>
+<body>
+	<p>编写设置和获取颜色的插件color(),该插件的功能有两个</p>
+	<p>1. 设置匹配元素的颜色</p>
+	<p>2. 获取匹配的元素(元素集合中的第一个)的颜色</p>
+	<div class="div1">
+		查看div1颜色为pink
+	</div>
+	<br>
+	<div class="div2">
+		本身颜色为绿色，改成蓝色
+	</div>
+</body>
+</html>
+<script type="text/javascript">
+	$(function(){
+		alert($('.div1').color()+"\n 返回字符串，证明此插件可用");
+		alert($('.div2').color("blue")+"\n 返回object，证明得到的是object对象");
+	})
+</script>
